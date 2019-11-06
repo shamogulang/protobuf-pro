@@ -1,4 +1,5 @@
 import com.example.tutorial.AddressBookProtos;
+import com.example.tutorial.BaseMqDtoUtils;
 import com.google.protobuf.util.JsonFormat;
 
 import java.io.*;
@@ -51,12 +52,14 @@ public class Client {
             //person.writeDelimitedTo(byteArrayOutputStream);
             //byteArrayOutputStream.writeTo(outputStream);
 
-            InputStream inputStream = new FileInputStream("byte1-save");
-            byte[] bytes = new byte[1024];
-            int lent = inputStream.read(bytes);
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes,0,lent);
-            System.out.println(AddressBookProtos.Person.parseDelimitedFrom(byteArrayInputStream));
+            //InputStream inputStream = new FileInputStream("byte1-save");
+            //byte[] bytes = new byte[1024];
+            //int lent = inputStream.read(bytes);
+            //ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes,0,lent);
+            //System.out.println(AddressBookProtos.Person.parseDelimitedFrom(byteArrayInputStream));
 
+            BaseMqDtoUtils.BaseMqDto baseMqDto = BaseMqDtoUtils.BaseMqDto.newBuilder().setAction(1).setData("hello").build();
+            System.out.println(baseMqDto);
         }catch (Exception e){
             System.out.println(e.getMessage());
         }

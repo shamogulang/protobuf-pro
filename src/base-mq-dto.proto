@@ -1,0 +1,11 @@
+syntax = "proto3";//在三的版本中已经移除了required，并且默认的是optional,已经不显示使用了
+
+package tutorial;
+
+option java_package = "com.example.tutorial";
+option java_outer_classname = "BaseMqDtoUtils";
+
+message BaseMqDto{
+  string data = 1;
+  int32 action = 2;
+}
